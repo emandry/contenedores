@@ -8,6 +8,9 @@ RUN apk update && \
 # Copiamos el archivo index.html desde el directorio actual al directorio de documentos de Apache en el contenedor
 COPY index.html /var/www/localhost/htdocs/
 
+RUN chown apache /var/www/localhost/htdocs/index.html && chmod +r /var/www/localhost/htdocs/index.html
+
+
 # Exponemos el puerto 80 para que Apache pueda recibir solicitudes HTTP
 EXPOSE 80
 
